@@ -1,0 +1,28 @@
+name:                clean-downloads
+version:             0.1.1.0
+synopsis:            Clean ~/Downloads of old files
+description:         Please see README.md
+homepage:            https://github.com/Reyu/cleandownloads#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Tim Millican
+maintainer:          tim.millican@gmail.com
+copyright:           2016 Tim Millican
+category:            Web
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+executable clean-downloads
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base      >= 4.9   && < 5
+                     , directory >= 1.2.6 && < 2
+                     , time      >= 1.6.0 && < 2
+                     , filepath  >= 1.4.0 && < 2
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/Reyu/clean-downloads

@@ -1,0 +1,16 @@
+{
+    "app/*.hs": {
+        "type": "app"
+    },
+    "app/Main.hs": { "type": "app" },
+    "clean-downloads.cabal": { "type": "cabal" },
+    "Setup.hs": { "type": "setup" },
+    "README.md": { "type": "readme" },
+    "LICENSE": { "type": "license" },
+    "stack.yaml": { "type": "stack" },
+    "*": {
+        "make": "stack build",
+        "start": "stack exec -- clean-downloads",
+        "dispatch": "stack ghci"
+    }
+}
