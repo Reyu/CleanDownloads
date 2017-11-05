@@ -26,9 +26,11 @@ clean remove path = do
   aTime <- getAccessTime path
   isFile <- doesFileExist path -- True: File | False: Directory
   let newPath = "Old" </> path
-  when (diffUTCTime cTime aTime > (60 * 60 * 24 * 7)) $
+  when (diffUTCTime cTime aTime > oneWeek) $
     do if |  isFile && remove -> removeFile path
           |  isFile && not remove -> renameFile path newPath
           |  not isFile && remove -> removeDirectoryRecursive path
           |  not isFile && not remove -> renameDirectory path newPath
        unless remove $ setAccessTime newPath cTime
+    where
+        oneWeek = 60 * 60 * 24 * 7
